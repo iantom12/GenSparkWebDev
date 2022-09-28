@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: rgb(142, 172, 213);
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: rgb(255, 239, 239);
+        }
+        
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .registerbtn {
+          background-color: #4055a8;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+    
+      
+        </style>
+<h1>New Customer Registration Form</h1>
+<h2>Register Here:</h2>
+<p>Please fill in the details to create an account with us.</p>
+</head>
+<body>
+<form>
+	<table>
+        <tr>
+			<td>
+				Name:
+			</td>
+
+			<td>
+				<input type=”text”  placeholder=”Name” name=”customername”>
+			</td>
+		</tr>
+<tr>
+<td>
+    <tr>
+        <td>
+            Phone Number:
+        </td>
+
+        <td>
+            <input type=”number”  placeholder=”Phone” name=”phonenumber”>
+        </td>
+    </tr>
+<tr>
+<td>
+		<tr>
+			<td>
+				Email Address:
+			</td>
+
+			<td>
+				<input type=”mail”  placeholder=”Email” name=”email”>
+			</td>
+		</tr>
+<tr>
+<td>
+				Password:
+			</td>
+
+			<td>
+				<input type=”password” placeholder=”Password” name=”password”>
+			</td>
+		</tr>
+	</table>
+    <button type="submit" onsubmit="return validateform()"class="registerbtn"><strong>Register</strong></button>
+    <script>   
+      function getData()
+    {
+        //gettting the values
+        var email = document.getElementById("email").value;
+        var password= document.getElementById("password").value; 
+        var phone= document.getElementById("phonenumber").value; 
+        var Name= document.getElementById("customername").value; 
+        //saving the values in local storage
+        localStorage.setItem("txtValue", email);
+        localStorage.setItem("txtValue1", password);
+        localStorage.setItem("txtValue2", phone);
+        localStorage.setItem("txtValue3", Name);   
+    }
+    </script>
+    <script>  
+      function validateform(){  
+        let valid   = true
+        
+      element = document.getElementById("customername")
+      element = document.getElementById("password")
+      element = document.getElementById("email")
+
+if( ! element.value.toLowerCase().match('[a-z0-9]+@[a-z]+\.[a-z]+')) {
+  alert("Use valid email");
+    valid = false
+}
+      if (element==null || element==""){  
+        alert("Name can't be blank");
+        valid   = false
+        return false;  
+      }else if(element.length<6){  
+        alert("Password must be at least 6 characters long.");
+        valid  = false
+        return false;  
+        } 
+        if(valid) {
+          getData()
+        window.location.href = 'customerdata.html'
+    }
+        
+      }  
+
+
+      </script>  
+</form> 
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customer Registration Info Display</title>
+        <style>
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+              background-color: rgb(142, 172, 213);
+            }
+            
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Add padding to containers */
+            .container {
+              padding: 16px;
+              background-color: rgb(255, 239, 239);
+            }
+        
+          
+            </style>
+    </head>
+    <script>   
+        function loadData()
+      {
+         //displaying the value from local storage to another page by their respective Ids
+document.getElementById("data").innerHTML=localStorage.getItem("txtValue");
+document.getElementById("data1").innerHTML=localStorage.getItem("txtValue1");
+document.getElementById("data2").innerHTML=localStorage.getItem("txtValue2");
+document.getElementById("data3").innerHTML=localStorage.getItem("txtValue3");
+      }
+      </script>
+    <body onload="loadData()">
+        <header>
+            <h1>Customer Registration Info</h1>
+        </header>
+        <main>
+            <table id="info-table">
+                <tr>
+                    <td>Email:</td>
+                    <td id="txtValue"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td id="txtValue1"></td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td id="txtValue2"></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td id="txtValue3"></td>
+                </tr>
+            </table>
+        </main>
+    </body>
+</html>
